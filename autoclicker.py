@@ -3,8 +3,8 @@ from pynput.keyboard import *
 
 #  ======== settings ========
 delay = 1  # in seconds
-resume_key = Key.f2
-pause_key = Key.f3
+resume_key = Key.f1
+pause_key = Key.f2
 exit_key = Key.esc
 #  ==========================
 
