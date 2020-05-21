@@ -1,5 +1,9 @@
 import pyautogui
+import ctypes
 from pynput.keyboard import *
+from time import sleep
+
+ctypes.windll.kernel32.SetConsoleTitleW("Autoclicker") # set the title of the window, otherwise it'll be generic "python" or similar
 
 #  ======== settings ========
 delay = 1  # in seconds
@@ -46,6 +50,8 @@ def main():
         if not pause:
             pyautogui.click(pyautogui.position())
             pyautogui.PAUSE = delay
+        else:
+            sleep(delay) # otherwise it uses 100% CPU
     lis.stop()
 
 
