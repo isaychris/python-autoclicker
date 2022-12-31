@@ -30,11 +30,11 @@ def display_controls():
     print("// - Settings: ")
     print("\t delay = " + str(delay) + ' sec' + '\n')
     print("// - Controls:")
-    print("\t F1 = Resume")
-    print("\t F2 = Pause")
-    print("\t F3 = Exit")
+    print(f"\t {resume_key.name} = Resume")
+    print(f"\t {pause_key.name} = Pause")
+    print(f"\t {exit_key.name} = Exit")
     print("-----------------------------------------------------")
-    print('Press F1 to start ...')
+    print(f'Press {resume_key.name} to start ...')
 
 
 def main():
