@@ -2,9 +2,9 @@ import pyautogui
 from pynput.keyboard import *
 from random import randrange
 
-#  ======== settings ========
-delay = 60 # static delay in seconds
-rand_delay = 15 # random range argument between 1 and the number, in seconds
+#  ======== Settings ========
+delay = 60 # Static delay in seconds
+rand_delay = 15 # Random range argument between 1 and the number, in seconds
 resume_key = Key.f1
 run_rand = Key.f2
 pause_key = Key.f3
@@ -37,8 +37,8 @@ def on_press(key):
 def display_controls():
     print("// AutoClicker by iSayChris. Additional Features by Derplime.")
     print("// - Settings: ")
-    print("\t delay = " + str(delay) + ' sec')
-    print("\t random delay = from 1 to " + str(rand_delay) + ' sec' + '\n')
+    print("\t Static delay = " + str(delay) + " sec")
+    print("\t Random delay = 1 to " + str(rand_delay) + " sec\n")
     print("// - Controls:")
     print("\t F1 = Resume Static Delay")
     print("\t F2 = Resume Random Delay")
