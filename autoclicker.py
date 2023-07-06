@@ -1,22 +1,31 @@
 import pyautogui
 from pynput.keyboard import *
+from random import randrange
 
 #  ======== settings ========
-delay = 1  # in seconds
+delay = 60 # static delay in seconds
+rand_delay = 15 # random range argument between 1 and the number, in seconds
 resume_key = Key.f1
-pause_key = Key.f2
+run_rand = Key.f2
+pause_key = Key.f3
 exit_key = Key.esc
 #  ==========================
 
 pause = True
 running = True
+rand_num = False
 
 def on_press(key):
-    global running, pause
+    global running, pause, rand_num
 
     if key == resume_key:
         pause = False
-        print("[Resumed]")
+        rand_num = False
+        print("[Resumed Static Delay]")
+    elif key == run_rand:
+        pause = False
+        rand_num = True
+        print("[Resumed Random Delay]")
     elif key == pause_key:
         pause = True
         print("[Paused]")
@@ -26,15 +35,17 @@ def on_press(key):
 
 
 def display_controls():
-    print("// AutoClicker by iSayChris")
+    print("// AutoClicker by iSayChris. Additional Features by Derplime.")
     print("// - Settings: ")
-    print("\t delay = " + str(delay) + ' sec' + '\n')
+    print("\t delay = " + str(delay) + ' sec')
+    print("\t random delay = from 1 to " + str(rand_delay) + ' sec' + '\n')
     print("// - Controls:")
-    print("\t F1 = Resume")
-    print("\t F2 = Pause")
-    print("\t F3 = Exit")
+    print("\t F1 = Resume Static Delay")
+    print("\t F2 = Resume Random Delay")
+    print("\t F3 = Pause")
+    print("\t ESC = Exit")
     print("-----------------------------------------------------")
-    print('Press F1 to start ...')
+    print('Press F1 or F2 to start ...')
 
 
 def main():
@@ -45,6 +56,8 @@ def main():
     while running:
         if not pause:
             pyautogui.click(pyautogui.position())
+            if rand_num:
+                pyautogui.PAUSE = randrange(1, rand_delay)
             pyautogui.PAUSE = delay
     lis.stop()
 
