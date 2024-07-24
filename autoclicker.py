@@ -11,7 +11,7 @@ exit_key = Key.esc
 pause = True
 running = True
 
-def on_press(key):
+def onPress(key):
     global running, pause
 
     if key == resume_key:
@@ -25,23 +25,29 @@ def on_press(key):
         print("[Exit]")
 
 
-def display_controls():
-    print("// AutoClicker by iSayChris")
-    print("// - Settings: ")
-    print("\t delay = " + str(delay) + ' sec' + '\n')
-    print("// - Controls:")
-    print("\t F1 = Resume")
-    print("\t F2 = Pause")
-    print("\t F3 = Exit")
+def displayControls():
+    print("=====================================================")
+    print("                 AutoClicker by iSayChris            ")
+    print("              Personalized by SoyAlex2024            ")
+    print("=====================================================")
+    print("                       Settings                      ")
+    print("-----------------------------------------------------")
+    print(f" Delay: \t\t {delay} sec                       ")
+    print("-----------------------------------------------------")
+    print("                       Controls                      ")
+    print("-----------------------------------------------------")
+    print(" F1 \t= Resume                                       ")
+    print(" F2 \t= Pause                                        ")
+    print(" F3 \t= Exit                                         ")
     print("-----------------------------------------------------")
     print('Press F1 to start ...')
 
 
 def main():
-    lis = Listener(on_press=on_press)
+    lis = Listener(onPress=onPress)
     lis.start()
 
-    display_controls()
+    displayControls()
     while running:
         if not pause:
             pyautogui.click(pyautogui.position())
